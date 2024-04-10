@@ -1,6 +1,6 @@
 Andrey Chighine's SQL Portfolio
 
-Hello, This repository contains examples of SQL I've written for solo projects while working through SQL, Power BI, and other data analytics courses. Feel free to take a look around and [reach out]([url](https://www.linkedin.com/in/andrey-chighine-7604b2246/)) if you have any feedback or questions.
+Hello, This repository contains examples of SQL I've written for solo projects while working through SQL, Power BI, and other data analytics courses. Feel free to take a look around and [reach out]([url](https://www.linkedin.com/in/andrey-chighine-7604b2246/) if you have any feedback or questions.
 
 Highlighted Projects
 Netflix Movies and TV Shows- SQL: In this project, I used a dataset found on Kaggle to analyze specific data for a later graphic creation on Power BI. Using multitple and combined queries to get the data needed, and also remove unneeded data that will not be helpful for graphic purposes were the bases of my SQL Project. At the end of the project I was able to customized the database based on my needs and the results were as I expected and really good.
