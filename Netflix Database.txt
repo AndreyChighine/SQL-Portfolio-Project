@@ -1,0 +1,94 @@
+--Database:Netflix
+--Source: https://www.kaggle.com/datasets/shivamb/netflix-shows
+
+#How many null values do you find in the country, date_added and duration table?
+SELECT COUNT(*)
+FROM netflix1
+WHERE country AND date_added AND duration IS NULL;
+#--0 Values with NULL value
+
+
+#Count how many movies does not have a director 
+SELECT COUNT(*)
+FROM netflix1
+WHERE director = 'Not Given';
+#--There are 125 movies without director
+
+
+#Show the latest movie and the first movie
+#--Show the latest movie
+SELECT title, release_year
+FROM netflix1
+WHERE release_year ORDER BY release_year desc;
+
+#--Show the first movie
+SELECT title, release_year
+FROM netflix1
+WHERE release_year ORDER BY release_year ASC;
+
+
+#Count how many movies/tvshows were released in 2019
+SELECT COUNT(*)
+FROM netflix1
+WHERE release_year = 2019;
+
+
+
+#What type of data is the “listed_in” column? Can you convert it to VARCHAR?
+SHOW COLUMNS FROM netflix1; 
+#--listed_in is a text column
+ALTER TABLE netflix1
+MODIFY column listed_in VARCHAR(100);
+#--Changed listed_in as a  VARCHAR(100) column
+
+
+
+#What type of categories are listed in netflix?
+SELECT type
+FROM netflix1;
+#--TV Show and Movies
+
+
+
+#How many TV shows and Movies are listed in Netflix?
+SELECT COUNT(*) AS Total_of_TVshows
+FROM netflix1
+WHERE type = 'TV Show';
+#--119 total tv shows
+
+SELECT COUNT(*) AS Total_of_Movies
+FROM netflix1
+WHERE type != 'TV Show';
+#--147 Movies
+
+#Check how many TV Shows from 2021 the --COVID 19 pandemic-- are rated PG-13 
+SELECT COUNT(*) AS Covid_19_rated_movied, rating, release_year
+FROM netflix1
+WHERE release_year = 2021 AND rating = 'PG-13';
+#--4 movies were rated PG-13 from 2021
+
+
+#Limit the search to show only 5 values where the Title ends with 'd'
+SELECT title
+FROM netflix1
+WHERE title LIKE '%d' LIMIT 5;
+
+#Insert my favorite 3 TV Shows and type
+INSERT INTO netflix1 (title, type) 
+VALUES 
+('Sherlock', 'Sir Arthur Conan Doyle'), 
+('La Casa de Papel', 'Alejandro Pina Calafi'),
+('Soy leyenda', 'Francis Lawrence');
+
+#Change the previopus values to type since I updated the wrong colunm
+UPDATE netflix1 set type = 'Tv Show' WHERE type = 'Sir Arthur Conan Doyle';
+UPDATE netflix1 set type = 'Tv Show' WHERE type = 'Alejandro Pina Calafi';
+UPDATE netflix1 set type = 'Movie' WHERE type = 'Francis Lawrence';
+
+
+DELETE FROM netflix1 WHERE country = 'Not given';
+#-- 20 rows affected, I deleted the 'Not given' for Power BI grafic purpuses
+
+
+DELETE FROM netflix1 WHERE director = 'Not given';
+#-- 125 rows affected, I deleted the 'Not given' for Power BI grafic purpuses
