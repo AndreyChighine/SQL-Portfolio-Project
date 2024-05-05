@@ -1,3 +1,4 @@
+A personal project for the SQL course was created with multiple SQL querys, on this database I implemented database design, data modeling, ETL processes, DDL and DML language.
 
 CREATE DATABASE jardineria;
 USE jardineria;
